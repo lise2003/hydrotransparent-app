@@ -4,7 +4,7 @@ st.set_page_config(
     page_title="HydroTransparent - Where Every Drop Tells a Story",
     page_icon="💧",
     layout="wide",
-    initial_sidebar_state="collapsed"
+    initial_sidebar_state="expanded"
 )
 
 # Custom CSS for the split-screen cinematic experience with your images
@@ -162,23 +162,38 @@ st.markdown("""
         color: white;
     }
     
-    .cta-button {
+    .nav-button {
         background: linear-gradient(45deg, #00b4db, #0083b0);
         color: white;
         border: none;
-        padding: 20px 50px;
-        border-radius: 50px;
-        font-size: 1.3rem;
+        padding: 15px 30px;
+        border-radius: 25px;
+        font-size: 1.1rem;
         font-weight: 600;
         cursor: pointer;
         transition: all 0.3s ease;
-        display: inline-block;
-        text-decoration: none;
+        margin: 10px;
+        width: 200px;
     }
     
-    .cta-button:hover {
+    .nav-button:hover {
         transform: scale(1.05);
-        box-shadow: 0 15px 30px rgba(0,180,219,0.4);
+        box-shadow: 0 10px 20px rgba(0,180,219,0.3);
+    }
+    
+    .button-grid {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin: 30px 0;
+    }
+    
+    .button-label {
+        text-align: center;
+        color: #ccc;
+        font-size: 0.9rem;
+        margin-top: 5px;
     }
     
     /* Scroll indicator */
@@ -231,6 +246,16 @@ st.markdown("""
         .impact-grid {
             grid-template-columns: 1fr;
             gap: 20px;
+        }
+        
+        .button-grid {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .nav-button {
+            width: 100%;
+            max-width: 300px;
         }
     }
 </style>
@@ -320,22 +345,89 @@ def main():
     # Call to Action Section
     st.markdown("""
     <div class="cta-section">
-        <div class="cta-headline">Ready to Turn Crisis into Hope?</div>
+        <div class="cta-headline">Ready to Build a Water-Secure Future?</div>
         <p style="font-size: 1.3rem; color: #ccc; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">
-            See exactly how every rand transforms communities, creates jobs, and brings water to those who need it most.
+            Use the sidebar navigation to explore all features of our comprehensive water solution platform.
         </p>
-        <a href="/Province_Map" class="cta-button" onclick="window.parent.location.href='/Province_Map'; return false;">
-            See How It Works
-        </a>
+        
+        <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; max-width: 800px; margin: 0 auto;">
+            <h3 style="color: #00b4db; text-align: center; margin-bottom: 20px;">🚀 Quick Start Guide</h3>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: left;">
+                <div>
+                    <h4 style="color: #00b4db;">1. Start Here:</h4>
+                    <p style="color: #ccc; font-size: 0.9rem;">👉 Click <strong>"🏠 Province Map"</strong> in the sidebar to begin with geographic data exploration</p>
+                </div>
+                <div>
+                    <h4 style="color: #00b4db;">2. Then Explore:</h4>
+                    <p style="color: #ccc; font-size: 0.9rem;">💧 <strong>Water Solutions</strong> - Engineering options<br>
+                    💰 <strong>Cost Calculator</strong> - Project budgeting<br>
+                    📊 <strong>Water Quality</strong> - SAN 241 compliance</p>
+                </div>
+            </div>
+        </div>
+        
+        <div style="margin-top: 40px;">
+            <h4 style="color: #00b4db; margin-bottom: 20px;">All Features Available in Sidebar:</h4>
+            <div class="button-grid">
+                <div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; margin-bottom: 10px;">🌍</div>
+                        <div class="button-label">Province Map</div>
+                    </div>
+                </div>
+                <div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; margin-bottom: 10px;">💧</div>
+                        <div class="button-label">Water Solutions</div>
+                    </div>
+                </div>
+                <div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; margin-bottom: 10px;">🔧</div>
+                        <div class="button-label">3D Equipment</div>
+                    </div>
+                </div>
+                <div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; margin-bottom: 10px;">💰</div>
+                        <div class="button-label">Cost Calculator</div>
+                    </div>
+                </div>
+                <div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; margin-bottom: 10px;">📊</div>
+                        <div class="button-label">Water Quality</div>
+                    </div>
+                </div>
+                <div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; margin-bottom: 10px;">📋</div>
+                        <div class="button-label">Transparency</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     """, unsafe_allow_html=True)
     
-    # Add some spacing at the bottom
-    st.markdown("<div style='padding: 50px;'></div>", unsafe_allow_html=True)
+    # Simple instruction for sidebar navigation
+    st.markdown("""
+    <div style="text-align: center; margin-top: 30px; padding: 20px; background: rgba(0,180,219,0.1); border-radius: 10px;">
+        <p style="color: #00b4db; font-size: 1.1rem; font-weight: 600;">
+            💡 <strong>Navigation Tip:</strong> Look for the sidebar on the left side of your screen and click any page to explore!
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Footer
+    st.markdown("---")
+    st.markdown("""
+    <div style='text-align: center; color: #e0f7fa; font-style: italic; padding: 40px 20px;'>
+        <p style='font-size: 1.1rem;'>"When every rand is traceable, corruption cannot hide. When every transaction is public, trust is rebuilt.</p>
+        <p style='font-size: 1.1rem;'>When communities can see where money flows, hope returns. This is the HydroTransparent promise."</p>
+    </div>
+    """, unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
-
-# In your CTA section, replace the anchor tag with:
-if st.button("🚀 See How It Works", type="primary", use_container_width=True):
-    st.switch_page("pages/1_🏠_Province_Map.py")
